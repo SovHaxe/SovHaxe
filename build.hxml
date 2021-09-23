@@ -9,6 +9,7 @@
 --library ufront-mvc:1.1.0
 
 --each
+
 --js target/web/sovHaxe.js
 -v
 -dce std
@@ -16,6 +17,6 @@
 --next
 
 --class-path sovHaxe.serverHost.Main
---neko target/neko/main.n
+--neko target/neko/index.n
 -v
 --dce std

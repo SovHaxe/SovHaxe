@@ -2,3 +2,4 @@
 .haxelib
 *.iml
 /target
+/docs
