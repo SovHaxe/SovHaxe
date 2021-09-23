@@ -1,6 +1,11 @@
-# https://haxe.org/manual/compiler-usage-hxml.html Compiler documentation on how to modify and work with .hxml files
-
+# https://haxe.org/manual/compiler-usage-hxml.html Compiler documentation on how to modify and work with .hxml files\
+--class-path src
+--main sovHaxe.Main
+--js target/web/sovHaxe.js
+-v
 -dce std
 # Library definitions. See dependancies.md for explanations as well as haxelib pages.
+--library hxjava:4.2.0
 --library dox:1.6.0
 --library color:1.0.4
+--library ufront-mvc:1.1.0
