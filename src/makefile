@@ -22,4 +22,5 @@ documents:
 	$(hx) ./build.hxml -xml ../docs/xml/doc.xml -D doc-gen
 	$(hxlib) run dox -i ../docs/xml/doc.xml -o ../docs/html/
 
-
+local:
+	nekotools server -d ../target/
