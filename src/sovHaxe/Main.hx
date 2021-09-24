@@ -1,6 +1,7 @@
 package sovHaxe;
-class Main {
-    static public function main():Void {
 
+class Main {
+    public static function main() {
+        trace("ok");
     }
 }

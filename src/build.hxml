@@ -1,22 +1,11 @@
 # https://haxe.org/manual/compiler-usage-hxml.html Compiler documentation on how to modify and work with .hxml files\
---class-path src
---main sovHaxe.Main
-
 # Library definitions. See dependancies.md for explanations as well as haxelib pages.
---library hxdom:1.0.1
 --library dox:1.6.0
---library color:1.0.4
---library ufront-mvc:1.1.0
 
+# Compile each piece using the individual compile definitons
 --each
-
---js target/web/sovHaxe.js
--v
--dce std
+./web/compile.hxml
 
 --next
+./sovHaxe/compile.hxml
 
---class-path sovHaxe.serverHost.Main
---neko target/neko/index.n
--v
---dce std

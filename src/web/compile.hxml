@@ -1,0 +1,17 @@
+#Compiler for the Web component Be that Front or backend but not Pure Backend Providers
+#This is Stuff we don't mind the user accessing
+
+--each
+--class-path web
+--main web.Main
+--neko ../target/index.n
+--dce no
+--next
+--class-path web
+--main web.js.Main
+--js ../target/js/index.js
+--dce no
+
+
+
+

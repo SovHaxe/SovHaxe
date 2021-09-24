@@ -1,0 +1,7 @@
+#Libraries for sovHaxe
+--library color:1.0.4
+
+--class-path sovHaxe
+--neko ../target/sovHaxe/sovHaxe.n
+--main sovHaxe.Main
+--dce no
