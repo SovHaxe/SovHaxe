@@ -29,7 +29,6 @@ class Page {
         this.html.addChild(head);
         this.html.addChild(body);
 
-        //Setup the access for the value
     }
 
 
