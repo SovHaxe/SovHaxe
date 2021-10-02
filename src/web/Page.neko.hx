@@ -22,7 +22,7 @@ class Page {
 
         this.script.set("src", pathToJS);
         this.script.addChild(Xml.createElement(""));
-          //this.script.set("type", "text/javascript");
+        //this.script.set("type", "text/javascript");
         this.body.addChild(this.script);
 
         //Now add the Elements to the HTML

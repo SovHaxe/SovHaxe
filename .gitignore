@@ -3,3 +3,4 @@
 *.iml
 /target
 /docs
+/.vscode/tasks.json

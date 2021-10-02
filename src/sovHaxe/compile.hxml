@@ -4,5 +4,5 @@
 
 --class-path sovHaxe
 --js ../target/js/sovHaxeMap.js
---main sovHaxe.Main
---dce no
+--main sovHaxe.MapComponent
+--debug
