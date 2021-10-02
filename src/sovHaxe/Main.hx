@@ -6,7 +6,7 @@ class Main extends hxd.App {
         tf.text = "App Ok";
     }
 
-    public static function main() {
+    static function main() {
         new Main();
     }
 }
