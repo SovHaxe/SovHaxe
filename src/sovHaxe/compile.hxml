@@ -1,7 +1,8 @@
 #Libraries for sovHaxe
 --library color:1.0.4
+--library heaps:1.9.1
 
 --class-path sovHaxe
---neko ../target/sovHaxe/sovHaxe.n
+--js ../target/js/sovHaxeMap.js
 --main sovHaxe.Main
 --dce no
