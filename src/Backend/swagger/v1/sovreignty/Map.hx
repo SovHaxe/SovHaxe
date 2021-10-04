@@ -21,7 +21,7 @@ class Map {
     public static var resourcePath:Path = new Path(Path.normalize("../resources/map.json"));
     public static var endpointURL:String = "https://esi.evetech.net/latest/sovereignty/map/?datasource=tranquility";
 
-    public static var remoteEndpointCacheTime:Float = 6000;
+    public static var remoteEndpointCacheTime:Float = 3600;
     public var antiRateLimitingMultiplier = 2;
 
 
@@ -53,15 +53,19 @@ class Map {
 
     dynamic function filePulse():String{
         // If we've already been running
-        if(sys.FileSystem.exists(resourcePath.toString())){
-            var resourceStat:FileStat =  sys.FileSystem.stat(resourcePath.toString());
+        if(FileSystem.exists(resourcePath.toString())){
+            var resourceStat:FileStat = FileSystem.stat(resourcePath.toString());
             var resourceStaleTime = DateTools.delta(resourceStat.mtime, DateTools.seconds(remoteEndpointCacheTime * antiRateLimitingMultiplier));
 
             if(Date.now().getTime() > resourceStaleTime){
-                //Resource is stale, refresh it
-                
+                //Resource is stale, refresh it in our resources
+                this.response = request();
+                File.saveContent(resourcePath.toString(), this.response);
+                return this.response;
+
             } else {
-                // If the resource is not stale. just le
+                // If the resource is not stale, Set the Response to our file content and return the response
+                this.response = File.getContent(resourcePath.toString());
                 return this.response;
             }
         } else {
@@ -69,10 +73,7 @@ class Map {
             File.saveContent(resourcePath.toString(), this.response);
             return this.response;
         }
-
-
     }
-
     /**
     * Make the request, limited by another process undefined in the method to prevent getting ratelimited
     * @return response
