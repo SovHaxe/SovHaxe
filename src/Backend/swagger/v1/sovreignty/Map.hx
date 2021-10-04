@@ -6,7 +6,6 @@ import haxe.io;
 import sys.FileSystem;
 import sys.FileStat;
 import DateTools;
-import haxe.exceptions.NotImplementedException;
 
 /**
 * Web Method and Haxe library implementation of:
@@ -49,8 +48,6 @@ class Map {
     function filePulse(){
         if(sys.FileSystem.exists(resourcePath.toString())){
             var resourceStat:FileStat =  sys.FileSystem.stat(resourcePath.toString());
-            // The remote Caches time refresh time
-            var resourceCacheCeling DateTools.delta(new Date(resourceStat.mtime.getDate()), DateTools.seconds(6000 * 2)).getTime();
 
         }
     }
