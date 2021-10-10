@@ -10,3 +10,6 @@
 --next
 ./sovHaxe/compile.hxml
 
+--next
+./backend/WebMethodCompile.hxml
+

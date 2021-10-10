@@ -4,3 +4,4 @@
 /target
 /docs
 /.vscode/tasks.json
+resources/*

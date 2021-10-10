@@ -2,6 +2,6 @@
 #Compile webmethods
 # Web methods are mostly Just Application level Operations that Affect resource files and potentially running Gets or SSO callback stuff.
 # Don't Take in user input... Quick way to get Pwnd.
---classpath backend.swagger.v1.sovreignty
---main sovreignty.Map
+--class-path backend.swagger.v1.sovreignty
+--main backend.swagger.v1.sovreignty.Map
 --neko ../target/ESI/map.n

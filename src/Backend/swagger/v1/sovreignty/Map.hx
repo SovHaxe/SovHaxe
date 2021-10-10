@@ -2,7 +2,7 @@ package backend.swagger.v1.sovreignty;
 
 import DateTools;
 import haxe.Http;
-import haxe.io;
+import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
 import sys.FileStat;
@@ -19,6 +19,7 @@ import DateTools;
 class Map {
     //Path to the generated resource within the application.
     public static var resourcePath:Path = new Path(Path.normalize("../resources/map.json"));
+    public static var resPath:Path = new Path(Path.normalize("../resources/"));
     public static var endpointURL:String = "https://esi.evetech.net/latest/sovereignty/map/?datasource=tranquility";
 
     public static var remoteEndpointCacheTime:Float = 3600;
@@ -26,7 +27,7 @@ class Map {
 
 
     private var reqInstance:Http;
-    private var response(null, null):String;
+    public var response(null, null):String;
     /**
     *     Create a main function for if this is Used as a "Web Method" (I.E Create a Page that can be called upon RESTfully and store a Resource in the WebServer itself)
     *       Do this cleverly by essentially just creating a Haxe object of this and returning the results in the objects response.static
@@ -35,13 +36,16 @@ class Map {
     **/
 
     public static function main() {
-        Sys.println(new Map());
+        Sys.println(new Map().response);
     }
     /**
     * Create a new function for if this Used as a Haxe method
     **/
     public function new() {
-       return filePulse();
+        if(!FileSystem.exists(resPath.toString())){
+            FileSystem.createDirectory(resPath.toString());
+        }
+        filePulse();
     }
 
     /**
@@ -51,16 +55,20 @@ class Map {
     * @return String - response content
     **/
 
-    dynamic function filePulse():String{
-        // If we've already been running
+    dynamic function filePulse():String {
+        // If we've already been runningg
         if(FileSystem.exists(resourcePath.toString())){
             var resourceStat:FileStat = FileSystem.stat(resourcePath.toString());
-            var resourceStaleTime = DateTools.delta(resourceStat.mtime, DateTools.seconds(remoteEndpointCacheTime * antiRateLimitingMultiplier));
+            var resourceStaleTime:Date = DateTools.delta(resourceStat.mtime, DateTools.seconds(remoteEndpointCacheTime * antiRateLimitingMultiplier));
 
-            if(Date.now().getTime() > resourceStaleTime){
+            if(Date.now().getTime() > resourceStaleTime.getTime()){
                 //Resource is stale, refresh it in our resources
                 this.response = request();
-                File.saveContent(resourcePath.toString(), this.response);
+                FileSystem.deleteFile(resourcePath.toString());
+                var file = File.write(resourcePath.toString(), false);
+                file.writeString(this.response);
+                file.flush();
+                file.close();
                 return this.response;
 
             } else {
@@ -70,7 +78,10 @@ class Map {
             }
         } else {
             this.response = request();
-            File.saveContent(resourcePath.toString(), this.response);
+            var file = File.write(resourcePath.toString(), false);
+            file.writeString(this.response);
+            file.flush();
+            file.close();
             return this.response;
         }
     }
