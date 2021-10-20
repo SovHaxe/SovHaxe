@@ -18,8 +18,8 @@ import DateTools;
 **/
 class Map {
     //Path to the generated resource within the application.
-    public static var resourcePath:Path = new Path(Path.normalize("../resources/map.json"));
-    public static var resPath:Path = new Path(Path.normalize("../resources/"));
+    public static var resourcePath:Path = new Path(Path.normalize("./resources/map.json"));
+    public static var resPath:Path = new Path(Path.normalize("./resources/"));
     public static var endpointURL:String = "https://esi.evetech.net/latest/sovereignty/map/?datasource=tranquility";
 
     public static var remoteEndpointCacheTime:Float = 3600;

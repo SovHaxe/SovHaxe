@@ -1,4 +1,5 @@
 package sovHaxe;
+import sovHaxe.primatives.PrimativePosition;
 import h3d.prim.Cube;
 import h3d.scene.Scene;
 import sovHaxe.models.SolarSystem;
@@ -16,6 +17,7 @@ class Galaxy {
     **/
     public function new(scene:Scene) {
         this.appScene = scene;
+        this.solarSystemList.add(new SolarSystem(0, 0, 0, 0, new PrimativePosition(1,1,1)));
     }
 
     /**
@@ -28,9 +30,8 @@ class Galaxy {
             starCube.translate(system.pos.x * NEW_EDEN_SCALE, system.pos.y * NEW_EDEN_SCALE, system.pos.z * NEW_EDEN_SCALE);
         }
         for(jumps in jumpList) {
-            var
+            // Resolve the length of the cube for the jump distance
+            var jumpCube:Cube = new Cube();
         }
     }
-
-
 }

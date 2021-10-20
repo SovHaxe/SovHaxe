@@ -1,4 +1,5 @@
 package sovHaxe.models;
+import src.color.Color;
 import sovHaxe.primatives.PrimativePosition;
 
 class SolarSystem {
@@ -17,7 +18,12 @@ class SolarSystem {
         this.regionId = regionId;
         this.apparentSovLevel = apparentSovLevel;
         this.pos = pos;
-        this.sovereignty;
+        if(sovereignty != null){
+            this.sovereignty = sovereignty;
+        } else {
+            this.sovereignty = new Alliance(0, "", true, new Color(128, 128, 128));
+        }
+
     }
 
 }
