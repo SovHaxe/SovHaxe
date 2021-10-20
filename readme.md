@@ -31,7 +31,7 @@ to Build compile and run a NekoVM development server, accessable from http://loc
 - [ ] Create the interperet SDE data and create an accurate map of New Eden with both Solar system data and Jump gates
 
   - [ ] Potentially support Pochven and maybe even Wormholes... We know both the position and Such. We might be able expose and define Influence for WH entities
-- [ ] Display influance on the map, this _must_ support IHUB influence. This is due to changes in Fozzysov making TCU's basically worthless... But since CCP likes to create "chaos" this may change.
+- [ ] Display influence on the map, this _must_ support IHUB influence. This is due to changes in Fozzysov making TCU's basically worthless... But since CCP likes to create "chaos" this may change.
  Ensure that we can easily replace Influence interpretation to deal with Hilmar weather. Oh... also Support FW because hopefully CCP will actually remember that exists
 
 - [ ] Allow the User to define their own Coalitions. This is important since eve online politics is like a Volcano. They can be static for years and then overnight explode into a lot of coalition changes.
