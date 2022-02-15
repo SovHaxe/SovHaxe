@@ -13,3 +13,5 @@
 --next
 ./backend/WebMethodCompile.hxml
 
+--next
+./backend/Server/webService.hxml

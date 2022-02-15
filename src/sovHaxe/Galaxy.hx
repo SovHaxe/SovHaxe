@@ -3,6 +3,8 @@ import sovHaxe.primatives.PrimativePosition;
 import h3d.prim.Cube;
 import h3d.scene.Scene;
 import sovHaxe.models.SolarSystem;
+
+
 class Galaxy {
 
     var solarSystemList:List<SolarSystem> = new List<SolarSystem>();

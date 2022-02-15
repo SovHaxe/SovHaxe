@@ -8,7 +8,7 @@ class SolarSystem {
     var constID:Int;
     var regionId:Int;
     var apparentSovLevel:Int;
-    var pos:PrimativePosition;
+    public var pos:PrimativePosition;
     var sovereignty:Alliance;
 
 

@@ -11,10 +11,10 @@ class MapComponent extends App {
         var appScene:Scene = s3d;
         var camera:Camera = appScene.camera; 
 
+        var galaxy:Galaxy = new Galaxy(s3d);
     }
 
     static function main() {
-
         new MapComponent();
     }
 }
