@@ -1,0 +1,4 @@
+-L weblink:git:https://github.com/PXshadow/weblink.git
+-L HtmlParser
+-main src.Application
+--hl bin/WebApplicaiton.hl
