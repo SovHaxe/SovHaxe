@@ -1,0 +1,21 @@
+-L createjs
+-L weblink:git:https://github.com/PXshadow/weblink.git
+-L HtmlParser
+
+--each
+-dce no
+-main src.client.Client
+-js bin/js/Client.js
+
+--next
+
+
+-dce no
+-main src.Application
+--hl bin/WebApplication.hl
+
+--resource ./src/pages/canvasPage.css@canvasStyle
+--resource ./src/pages/canvasPage.html@canvasPage
+--resource ./bin/js/Client.js@clientScript
+
+--debug
