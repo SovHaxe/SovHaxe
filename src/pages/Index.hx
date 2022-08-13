@@ -10,7 +10,6 @@ class Index{
     public var pageData:String;
     public function new(){
         var html = new HtmlDocument(Resource.getString("canvasPage"));
-
         //Load and embed 
         var pageStyle = html.find("#canvasStyle");
         pageStyle[0].innerHTML = Resource.getString("canvasStyle");

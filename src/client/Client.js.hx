@@ -5,16 +5,21 @@ import js.Browser;
 import createjs.easeljs.Stage;
 import createjs.easeljs.Shape;
 
+@:expose
+@:keep
 class Client {
 
     static public function main(){
         trace("client script loaded");
-        //create a createJS stage
-        var stage = new Stage("Map");
-        var testBox = new Shape();
 
-        testBox.graphics.beginFill("red").drawCircle(50, 50, 40);
-        stage.addChild(testBox);
+        var stage = new Stage("Map");
+        var testCircle = new Shape();
+
+        testCircle.graphics.beginFill("red").drawCircle(40,40,40);
+        stage.addChild(testCircle);
         stage.update();
     }
+    
+
+
 }
