@@ -1,14 +1,15 @@
--L createjs
--L weblink:git:https://github.com/PXshadow/weblink.git
--L HtmlParser
+-L createjs:git:https://github.com/nickalie/CreateJS-Haxe.git
+-L weblink:git:https://github.com/poklj/weblink.git#noRouteFix
+-L htmlparser
+-L yaml:git:https://github.com/mikestead/hx-yaml.git
 
 --each
 -dce no
 -main src.client.Client
 -js bin/js/Client.js
+--debug
 
 --next
-
 
 -dce no
 -main src.Application
@@ -17,5 +18,7 @@
 --resource ./src/pages/canvasPage.css@canvasStyle
 --resource ./src/pages/canvasPage.html@canvasPage
 --resource ./bin/js/Client.js@clientScript
+--resource ./bin/js/Client.js.map@clientScriptMAP
+--resource ./resources/eve-sso-login-white-large.png@eveSSOLogin
 
 --debug

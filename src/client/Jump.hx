@@ -4,8 +4,8 @@ package src.client;
 //Definition of a jump between two systems, as defined by two mutually connected stargates as resolved by the SDE parser
 //TODO: create the SDE parser
 class Jump{
-    var sysA(default, default):System;
-    var sysB(default, default):System;
+    public var sysA(default, default):System;
+    public var sysB(default, default):System;
     public function new(p1:System, p2:System){
         this.sysA = p1;
         this.sysB = p2;
