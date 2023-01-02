@@ -24,6 +24,8 @@ class Client {
         trace("client script loaded");
         var stage = new Stage("Map");
         var view = new View(stage);
+
+        
     }
 }
 
@@ -44,17 +46,6 @@ class View {
 
     public function drawUniverse(){
 
-        
-        var testGalaxy = new Galaxy();
-        
-        var sys1 = new System(1, 100, 100, 0);
-        var sys2 = new System(2, 200, 200, 1);
-        var sys3 = new System(3, 150, 300, 400);
-
-
-        testGalaxy.pushSystem(sys1);
-        testGalaxy.pushSystem(sys2);
-        testGalaxy.pushSystem(sys3);    
         testGalaxy.pushJump(new Jump(sys1, sys2));
         testGalaxy.pushJump(new Jump(sys3, sys2));
 
@@ -64,6 +55,7 @@ class View {
         for(system in testGalaxy.ASystems) {
             this.drawStar(system);
         }
+
 
     }
     public function drawJump(jump:Jump){

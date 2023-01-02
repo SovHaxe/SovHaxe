@@ -1,5 +1,7 @@
 package src;
 
+import src.client.Galaxy;
+import src.sde.GalaxySDE;
 import haxe.Resource;
 import sys.io.File;
 import haxe.http.HttpStatus;
@@ -7,6 +9,7 @@ import src.pages.Index;
 import weblink.Weblink;
 import weblink.Response;
 import weblink.Request;
+import src.sde.GalaxySDE.*;
 
 class Application {
     static public function main(){
@@ -43,6 +46,14 @@ class Application {
         app.get("/login.png", function(req, res){
             res.contentType = "image/png";
             res.sendBytes(Resource.getBytes("eveSSOLogin"));
+        });
+
+
+        app.get("/test.lol", function(req:Request, res:Response) {
+            res.contentType = "test/javascript";
+            var test:GalaxySDE = new GalaxySDE();
+            var galaxy:Galaxy = test.createGalaxy();
+            res.sendBytes(galaxy);
         });
 
         trace(app.routes);

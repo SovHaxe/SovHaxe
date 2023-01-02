@@ -1,8 +1,7 @@
 -L createjs:git:https://github.com/nickalie/CreateJS-Haxe.git
 -L weblink:git:https://github.com/poklj/weblink.git#noRouteFix
 -L htmlparser
--L yaml:git:https://github.com/mikestead/hx-yaml.git
-
+-L yaml
 --each
 -dce no
 -main src.client.Client
