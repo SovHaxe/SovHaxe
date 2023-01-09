@@ -1,5 +1,8 @@
 package src.client;
 
+import js.html.FetchEvent;
+import haxe.Unserializer;
+import js.html.Request;
 import createjs.easeljs.Graphics;
 import js.html.CanvasElement;
 import js.html.RecordingState;
@@ -12,8 +15,7 @@ import js.Browser;
 import js.Lib.debug;
 
 import createjs.easeljs.Stage;
-import createjs.easeljs.Shape;
-
+import createjs.easeljs.Shape; 
 
 // Our "Injection" code to give us a Haxe instance capable of modifying the canvas... Excuse the Main line, but static can't access itself so.... class splits.
 @:expose
@@ -24,7 +26,6 @@ class Client {
         trace("client script loaded");
         var stage = new Stage("Map");
         var view = new View(stage);
-
         
     }
 }
@@ -35,29 +36,35 @@ class Client {
 class View {
     public var stage:Stage;
     public var window:Window;
+    public var galaxy:Galaxy;
+
     var canvas:CanvasElement;
 
     public function new(stage:Stage){
         this.stage = stage;
         this.canvas = stage.canvas;
-        this.drawUniverse();
+        var galaxyRequest = new Request("/test.lol");
+        var galaxyPromise  = galaxyRequest.text();
+        
+        galaxyPromise.then(elem -> {
+           var ser:Unserializer = new Unserializer(elem);
+           this.galaxy = ser.unserialize();
+           drawUniverse();
+        });
+        
     }
     
 
     public function drawUniverse(){
-
-        testGalaxy.pushJump(new Jump(sys1, sys2));
-        testGalaxy.pushJump(new Jump(sys3, sys2));
-
-        for(jump in testGalaxy.AJumps) {
-            this.drawJump(jump);
+        for(jump in galaxy.AJumps) {
+            drawJump(jump);
         }
-        for(system in testGalaxy.ASystems) {
-            this.drawStar(system);
+        for(star in galaxy.ASystems){
+            drawStar(star);
         }
-
-
+        
     }
+
     public function drawJump(jump:Jump){
         var line = new Shape();
             var systemA = jump.sysA;
